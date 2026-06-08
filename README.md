@@ -14,9 +14,9 @@
 
 ## Deskripsi Proyek
 
-Proyek ini adalah implementasi **Development Environment in a Box** menggunakan Docker dan Docker Compose untuk **Sistem Informasi Akademik Mahasiswa (SIAM)** milik *Nusantara Tech*.
+**Development Environment in a Box** menggunakan Docker dan Docker Compose untuk **Sistem Informasi Akademik Mahasiswa (SIAM)** milik *Nusantara Tech*.
 
-Tujuannya adalah menyelesaikan masalah *"It works on my machine"* dengan menstandardisasi seluruh lingkungan development dalam satu perintah `docker-compose up`.
+Tujuannya adalah untuk menyelesaikan masalah *"It works on my machine"* dengan menstandardisasi seluruh lingkungan development dalam satu perintah `docker-compose up`.
 
 Aplikasi ini memiliki fitur:
 - **CRUD Data Mahasiswa** (simpan ke MySQL)
@@ -31,9 +31,9 @@ Aplikasi ini memiliki fitur:
                   ┌───────────────────────────────────────────────────────────┐
                   │                   Docker Network: siam.net                │
                   │                                                           │
-  siam.local ───► │  nginx:80 ──► app:3000 ──► mysql:3306                    │
-  minio.local ──► │  nginx:80 ──► minio:9001  (MinIO Console)               │
-  db.local ─────► │  nginx:80 ──► phpmyadmin:80 ──► mysql:3306              │
+  siam.local ───► │  nginx:80 ──► app:3000 ──► mysql:3306                     │
+  minio.local ──► │  nginx:80 ──► minio:9001  (MinIO Console)                 │
+  db.local ─────► │  nginx:80 ──► phpmyadmin:80 ──► mysql:3306                │
                   │                                                           │
                   │  DNS Internal Docker:                                     │
                   │    app · mysql · minio · phpmyadmin · nginx               │
@@ -82,9 +82,9 @@ siam-project/
 ## Cara Build dan Menjalankan Environment
 
 ### Prasyarat
-- **Docker Engine** (v20+) sudah terinstall dan berjalan
+- **Docker Engine** (v20+) sudah dan Docker Compose telah terinstal dan berjalan.
 - **Docker Compose** sudah terinstall
-- Port `80`, `3000`, `8080`, `9000`, `9001` tidak sedang dipakai oleh aplikasi lain
+- Port host 80, 3000, 8080, 9000, dan 9001 tidak sedang digunakan oleh aplikasi lain.
 
 ---
 
@@ -188,13 +188,13 @@ siam_nginx        nginx:alpine         Up                 0.0.0.0:80->80/tcp
 
 ## Cara Mengakses Layanan
 
-### 🌐 Aplikasi Web (SIAM API)
+### Aplikasi Web (SIAM API)
 | | |
 |---|---|
 | **Via Nginx (custom domain)** | http://siam.local |
 | **Langsung** | http://localhost:3000 |
 
-### 🗄️ Dashboard MinIO (Object Storage)
+### Dashboard MinIO (Object Storage)
 | | |
 |---|---|
 | **Via Nginx (custom domain)** | http://minio.local |
@@ -203,7 +203,7 @@ siam_nginx        nginx:alpine         Up                 0.0.0.0:80->80/tcp
 | **Password** | Nilai `MINIO_ROOT_PASSWORD` di `.env` |
 | **Bucket** | `students` (dibuat otomatis saat pertama kali app berjalan) |
 
-### 📊 phpMyAdmin (GUI Database)
+### phpMyAdmin (GUI Database)
 | | |
 |---|---|
 | **Via Nginx (custom domain)** | http://db.local |
@@ -352,7 +352,7 @@ Get-Content C:\Windows\System32\drivers\etc\hosts | Select-String "local"
 ```
 
 ### Bucket MinIO tidak muncul
-Bucket `students` dibuat otomatis oleh aplikasi saat pertama kali terhubung ke MinIO. Pastikan container `app` berstatus `healthy`, lalu refresh dashboard MinIO.
+Bucket `students` dibuat otomatis oleh aplikasi saat pertama kali terhubung ke MinIO. Jika *bucket* belum muncul, pastikan status kontainer `app` sudah berada dalam kondisi `Up (healthy)`. Setelah memastikan aplikasi berjalan normal, selanjutnya adalah melakukan penyegaran halaman (*refresh*) pada Dashboard MinIO Console.
 
 ### Port sudah dipakai
 Ubah port host di `docker-compose.yml` (bagian `ports:`), misalnya ganti `80:80` menjadi `8000:80`.
