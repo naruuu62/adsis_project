@@ -16,7 +16,9 @@
 
 **Development Environment in a Box** menggunakan Docker dan Docker Compose untuk **Sistem Informasi Akademik Mahasiswa (SIAM)** milik *Nusantara Tech*.
 
-Tujuannya adalah untuk menyelesaikan masalah *"It works on my machine"* dengan menstandardisasi seluruh lingkungan development dalam satu perintah `docker-compose up`.
+Tujuannya  adalah untuk menjamin aplikasi berjalan secara konsisten di komputer mana pun. Dengan standarisasi ini, masalah error akibat perbedaan environment bisa dihindari.
+
+Seluruh komponen system, mulai dari aplikasi web, database, hingga server penyimpanan bisa langsung dijalankan oleh siapa saja hanya dengan satu perintah: docker-compose up.
 
 Aplikasi ini memiliki fitur:
 - **CRUD Data Mahasiswa** (simpan ke MySQL)
