@@ -1,4 +1,4 @@
-# SIAM Akademik — Development Environment in a Box
+# SIAM Akademik - Development Environment in a Box
 
 **Mata Kuliah:** Administrasi Sistem  
 **Topik:** Standardisasi Lingkungan Development Terintegrasi (App, Database & Object Storage)  
@@ -88,7 +88,7 @@ siam-project/
 
 ---
 
-### Langkah 1 — Siapkan Direktori Proyek
+### Langkah 1 : Siapkan Direktori Proyek
 
 ```bash
 cd siam-project
@@ -96,7 +96,7 @@ cd siam-project
 
 ---
 
-### Langkah 2 — Setup Custom DNS (Nameserver Lokal)
+### Langkah 2 : Setup Custom DNS (Nameserver Lokal)
 
 Agar bisa akses via domain custom (`siam.local`, `minio.local`, `db.local`) tanpa menggunakan `localhost`:
 
@@ -116,7 +116,7 @@ Script ini akan otomatis menambahkan entri berikut ke file `C:\Windows\System32\
 
 ---
 
-### Langkah 3 — Buat File `.env`
+### Langkah 3 : Buat File `.env`
 
 Salin file contoh lalu sesuaikan dengan konfigurasi yang diinginkan:
 
@@ -156,7 +156,7 @@ PMA_PORT=3306
 
 ---
 
-### Langkah 4 — Build dan Jalankan Semua Container
+### Langkah 4 : Build dan Jalankan Semua Container
 
 ```bash
 docker-compose up -d --build
@@ -167,7 +167,7 @@ docker-compose up -d --build
 
 ---
 
-### Langkah 5 — Cek Status Container
+### Langkah 5 : Cek Status Container
 
 ```bash
 docker-compose ps
@@ -233,12 +233,12 @@ curl http://siam.local/health
 # Expected: {"status":"ok","service":"siam-akademik"}
 ```
 
-### GET — Ambil Semua Data Mahasiswa
+### GET Ambil Semua Data Mahasiswa
 ```bash
 curl http://siam.local/mahasiswa
 ```
 
-### POST — Tambah Mahasiswa Baru (dengan upload file)
+### POST Tambah Mahasiswa Baru (dengan upload file)
 ```bash
 curl -X POST http://siam.local/mahasiswa \
   -F "nim=245150700111099" \
@@ -255,7 +255,7 @@ curl -X POST http://siam.local/mahasiswa \
 
 ### 1. Semua Container Berstatus `Up`
 
-> *Screenshot `docker-compose ps` — semua container berstatus Up dan Healthy*
+> *Screenshot `docker-compose ps` semua container berstatus Up dan Healthy*
 
 <!-- SCREENSHOT: Tempelkan screenshot docker-compose ps di sini -->
 ![docker-compose ps](./docs/screenshot-1-docker-ps.png)
@@ -271,7 +271,7 @@ curl -X POST http://siam.local/mahasiswa \
 
 ---
 
-### 3. Dashboard MinIO — File Berhasil Terupload
+### 3. Dashboard MinIO File Berhasil Terupload
 
 > *Screenshot Dashboard MinIO menampilkan bucket `students` dan file yang berhasil diupload*
 
@@ -280,7 +280,7 @@ curl -X POST http://siam.local/mahasiswa \
 
 ---
 
-### 4. phpMyAdmin — Tabel dan Data Mahasiswa
+### 4. phpMyAdmin Tabel dan Data Mahasiswa
 
 > *Screenshot phpMyAdmin menampilkan tabel `mahasiswa` beserta data yang tersimpan*
 
