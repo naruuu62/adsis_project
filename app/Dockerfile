@@ -1,7 +1,3 @@
-# =============================================
-# Stage 1: Base image
-# Menggunakan node:20-alpine untuk image ringan (~50MB)
-# =============================================
 FROM node:20-alpine
 
 # Best practice: jalankan sebagai non-root user

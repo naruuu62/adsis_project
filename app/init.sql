@@ -1,8 +1,3 @@
--- =============================================
--- Inisialisasi Database: akademik_db
--- Dijalankan otomatis saat container MySQL pertama kali start
--- =============================================
-
 USE akademik_db;
 
 -- Tabel mahasiswa
